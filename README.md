@@ -1,2 +1,2 @@
 # hello-world
-just a repository
+前端练习，HTML 、CSS 和JavaScript练习文件
