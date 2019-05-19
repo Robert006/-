@@ -1,0 +1,519 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" type=""
+        href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+        color="#111">
+    <title>CodePen - Valentines Day</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,100,900" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <style>
+        /*Mixins*/
+        @import url(https://fonts.googleapis.com/css?family=Mr+De+Haviland);
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: pink;
+            font-weight: 100;
+            overflow: hidden;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .main-header {
+            dispaly: none;
+        }
+
+        .invisible {
+            opacity: 0;
+        }
+
+        .heading,
+        .love {
+            color: red;
+            font-weight: 100;
+            font-size: 800%;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            white-space: nowrap;
+            top: 80%;
+            -webkit-transform: translateY(-80%);
+            transform: translateY(-80%);
+            font-family: 'Mr De Haviland', cursive;
+        }
+
+        .love-container {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .heart-container {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+        .heart-container #heart-svg {
+            margin-top: 50px;
+            height: 70%;
+            width: 20%;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+        .heart-container #heart-svg #heart {
+            fill: red;
+        }
+
+        #little-heart1,
+        #little-heart2,
+        #little-heart3,
+        #little-heart4,
+        #little-heart5,
+        #little-heart6,
+        #little-heart7,
+        #little-heart8,
+        #little-heart9,
+        #little-heart10 {
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 100%;
+            left: 5%;
+            -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+        }
+
+        #little-heart1 .heart,
+        #little-heart2 .heart,
+        #little-heart3 .heart,
+        #little-heart4 .heart,
+        #little-heart5 .heart,
+        #little-heart6 .heart,
+        #little-heart7 .heart,
+        #little-heart8 .heart,
+        #little-heart9 .heart,
+        #little-heart10 .heart {
+            fill: red;
+        }
+
+        #little-heart2 {
+            height: 50px;
+            width: 50px;
+            left: 17%;
+            -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+        }
+
+        #little-heart3 {
+            height: 75px;
+            width: 75px;
+            left: 20%;
+            -webkit-transform: rotate(-7deg);
+            transform: rotate(-7deg);
+        }
+
+        #little-heart4 {
+            height: 20px;
+            width: 20px;
+            left: 12%;
+            -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+        }
+
+        #little-heart5 {
+            height: 50px;
+            width: 50px;
+            left: 10%;
+        }
+
+        #little-heart6 {
+            height: 30px;
+            width: 30px;
+            left: 70%;
+            -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+        }
+
+        #little-heart7 {
+            height: 20px;
+            width: 20px;
+            left: 85%;
+            -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+        }
+
+        #little-heart8 {
+            height: 80px;
+            width: 80px;
+            left: 75%;
+            -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+        }
+
+        #little-heart9 {
+            -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+            left: 85%;
+        }
+
+        #little-heart10 {
+            height: 50px;
+            width: 50px;
+            left: 95%;
+            -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+        }
+
+        .message-container {
+            opacity: 0;
+        }
+    </style>
+    <script>
+        window.console = window.console || function (t) { };
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+</head>
+
+<body translate="no" class="" style="">
+
+
+    <main>
+        <div class="love-container" style="visibility: hidden; opacity: 0;">
+            <h1 class="love" style="visibility: hidden; opacity: 0;">I love you</h1>
+        </div>
+        <h1 class="heading invisible" style="">
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                H</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                a</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                p</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                p</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                y</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                V</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                a</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                l</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                e</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                n</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                t</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                i</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                n</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                s</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                '</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                s</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                D</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                a</div>
+            <div
+                style="position: relative; display: inline-block; visibility: hidden; opacity: 0; transform: matrix3d(-0.5, 0, -0.866025, 0, 0, 1, 0, 0, 0.866025, 0, -0.5, 0, 0, 0, 0, 1);">
+                y</div>
+        </h1>
+        <div class="heart-container">
+            <svg id="heart-svg" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+                height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+                style="visibility: inherit; opacity: 1; transform: translate3d(0px, 0px, 0px) scale(1.05445, 1.05445);">
+                <g id="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                    stroke="none">
+                    <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+                </g>
+            </svg>
+        </div>
+        <svg id="little-heart1" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart2" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart3" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart4" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart5" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart6" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart7" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart8" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart9" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+        <svg id="little-heart10" version="1.0" xmlns="http://www.w3.org/2000/svg" width="507.000000pt"
+            height="463.000000pt" viewBox="0 0 507.000000 463.000000" preserveAspectRatio="xMidYMid meet"
+            style="visibility: inherit; opacity: 1; top: 100%;">
+            <g class="heart" transform="translate(0.000000,463.000000) scale(0.100000,-0.100000)" fill="#000000"
+                stroke="none">
+                <path d="M1235 4480 c-367 -66 -685 -298 -864 -630 -49 -92 -94 -225 -117
+-345 -23 -125 -15 -416 16 -560 61 -289 194 -550 408 -805 110 -131 386 -399
+637 -620 583 -511 884 -818 1125 -1147 41 -56 77 -102 80 -103 3 0 14 14 24
+30 30 52 165 230 264 350 143 172 561 585 867 855 297 263 613 573 719 705
+197 247 320 495 377 758 26 125 37 390 20 499 -61 384 -284 702 -622 887 -284
+155 -683 182 -984 66 -100 -39 -207 -96 -280 -150 -140 -103 -276 -259 -346
+-395 -19 -36 -36 -65 -39 -65 -3 0 -22 31 -42 69 -151 279 -427 494 -745 578
+-84 22 -123 26 -273 29 -96 1 -197 -1 -225 -6z"></path>
+            </g>
+        </svg>
+    </main>
+    <div class="message-container">
+        <h1 class="message">Please use a larger screen.</h1>
+    </div>
+    <!-- <script
+        src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="//www.greensock.com/js/src/utils/SplitText.min.js"></script> -->
+    <script src="./scripts/stopExecutionOnTimeout.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/TweenMax.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script> -->
+    <!-- <script src="./scripts/SplitText.min.js"></script> -->
+
+    <script id="rendered-js">
+        var $body = $('body');
+        var $heart = $('#heart-svg');
+        var $littleHeart1 = $("#little-heart1");
+        var $littleHeart2 = $("#little-heart2");
+        var $littleHeart3 = $("#little-heart3");
+        var $littleHeart4 = $("#little-heart4");
+        var $littleHeart5 = $("#little-heart5");
+        var $littleHeart6 = $("#little-heart6");
+        var $littleHeart7 = $("#little-heart7");
+        var $littleHeart8 = $("#little-heart8");
+        var $littleHeart9 = $("#little-heart9");
+        var $littleHeart10 = $("#little-heart10");
+
+        var $heartArray = [$littleHeart1, $littleHeart2, $littleHeart3, $littleHeart4, $littleHeart5, $littleHeart6, $littleHeart7, $littleHeart8, $littleHeart9, $littleHeart10];
+
+        // var $headingText = new SplitText(".heading", { type: "chars" });
+        var $love = $('.love');
+        var $loveContainer = $(".love-container");
+        var $heading = $(".heading");
+
+        TweenMax.to($heart, 1, { autoAlpha: 1 });
+
+        heartBeat($heart, 0.15, 0.25, 1);
+
+        $heart.on('click', function () {
+            if (!$body.hasClass('is-animating')) {
+                var littleHeartTimeline = new TimelineMax();
+                littleHeartTimeline.
+                    set($body, { className: '+=is-animating' });
+                littleHeart($littleHeart1, 5, 0);
+                littleHeart($littleHeart2, 4, 3);
+                littleHeart($littleHeart3, 4, 1);
+                littleHeart($littleHeart4, 4, 2);
+                littleHeart($littleHeart5, 3, 0.5);
+                littleHeart($littleHeart6, 3, 1.5);
+                littleHeart($littleHeart7, 4, 1);
+                littleHeart($littleHeart8, 7, 0.25);
+                littleHeart($littleHeart9, 5, 0.75);
+                littleHeart($littleHeart10, 4, 2);
+
+
+                littleHeartTimeline.
+                    to($loveContainer, 1, { autoAlpha: 1 }).
+                    fromTo($love, 1, { autoAlpha: 1 }, { autoAlpha: 0 }, '+=1').
+                    set($heading, { className: '-=invisible' }, '-=1').
+                    staggerFromTo($heading, 1, { autoAlpha: 0, rotationY: 180 }, { autoAlpha: 1, rotationY: 0 }, '0.1', '-=1').
+                    staggerFromTo($heading, 0.5, { autoAlpha: 1, rotationY: 0 }, { autoAlpha: 0, rotationY: 120 }, '0.1', "=+1").
+                    set($heading, { className: '+=invisible' }).
+                    set($loveContainer, { autoAlpha: 0 }).
+                    set($heartArray, { css: { top: '100%' } }).
+                    set($body, { className: '-=is-animating' });
+            }
+        });
+
+        function littleHeart(variable, second1, time) {
+            var littleHeartTimeline = new TimelineMax();
+            littleHeartTimeline.
+                to(variable, second1, { css: { top: '-40%' }, ease: Linear.easeNone }, time).
+                fromTo(variable, 2, { autoAlpha: 0 }, { autoAlpha: 1 }, time);
+        }
+
+        function heartBeat(variable, time1, time2, time3) {
+            var heartTimeline = new TimelineMax({ repeat: -1 });
+            heartTimeline.
+                to(variable, time1, { scale: 1.5 }).
+                to(variable, time2, { scale: 1 }).
+                to(variable, time1, { scale: 1.5 }).
+                to(variable, time3, { scale: 1 });
+        }
+      //# sourceURL=pen.js
+    </script>
+    <script
+        src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+
+
+</body>
+
+</html>
